@@ -1,0 +1,5 @@
+# Code Readme
+
+We start by defining the slave address of the I2C device as register 0x62 on line 30. After running the standard I2C device initialization functions, we create two new functions for reading and writing to registers on line 128 and 152. These functions were modeled using the waveform diagrams on page 4 of the Garmin operation manual. After creating these functions, we were able to create the lidarRead() function on line 178.
+
+In this function, we wait 22ms for the sensor to finish initializing, then write the value 0x04 to register 0x00 to initiate and begin sensor data acquisition. This happens on line 188. Next, we read the data in register 0x01 every 10ms and check if the LSB is 0. Once the LSB goes to 0, we know there is data ready to be read from the sensor, and we read the data from registers 0x11 and 0x10 into variables distHigh and distLow on lines 200-201. We then combine the data from those registers into one variable to display the distance in centimeters. We do this by left shifting the bits stored in the distHigh variable by 8 bits, and combining them with the bits stored in distLow.

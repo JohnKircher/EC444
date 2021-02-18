@@ -1,0 +1,3 @@
+# Code README
+
+We start by working from the same codebase as Skill 30, since we need the wheels to spin in order to test the optical decoder. Building off this codebase, we pull data from the optical decoder inside a while loop in app_main() on line 265. Inside this while loop, we increment a counter to keep track of pulses, and use this value inside the speedCalc() function on line 217. Inside this function, we multiply this counter value by the circumference of the wheel (2 * pi * radius) over the number of divisions in the optical decoder template, 12 in this case. We then divide this by 100 to convert it to meters per second.

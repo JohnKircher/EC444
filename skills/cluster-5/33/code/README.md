@@ -1,0 +1,2 @@
+# Code README
+The PID task begins on line 91, and starts by continuously looping and setting the error variable equal to the setpoint variable minus the range value taken from the ultrasonic sensor. Depending on the value of this error variable, three conditionals handle which LEDs to turn on, depending on how far within or outside of our setpoint we are. Below the conditionals, the integral, derivative, and output variables are calculated using default scaler values of 1. 
